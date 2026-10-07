@@ -7,7 +7,6 @@
 
 An end-to-end data project for a fictional UK online sweet shop. I designed a **normalised (3NF) relational database** from a conceptual ERD, loaded it with two years of realistic sales data, answered business questions with **complex SQL**, and built an **interactive Tableau dashboard** that tracks product sales performance, category revenue trends and repeat purchasing behaviour.
 
-> 🔗 **Live dashboard:** _add your Tableau Public link here_
 
 ![Sales Performance dashboard](tableau/dashboard_preview.png)
 
@@ -223,4 +222,4 @@ No real customer data is used. Names, emails and password hashes are fabricated.
 
 ## 👤 Author
 
-**Marriam Hussain**: [LinkedIn](https://www.linkedin.com/in/your-profile) · [Portfolio](https://your-portfolio.com)
+**Illiyin Sakhawat**: [LinkedIn](www.linkedin.com/in/illiyin-sakhawat)
