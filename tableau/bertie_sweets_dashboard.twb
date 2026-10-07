@@ -1,0 +1,1206 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook original-version='18.1' source-build='2026.2.0 (20262.26.0101.0000)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+  <datasource caption="Order Line Sales" inline='true' name="federated.order_line_sales" version='18.1'>
+    <connection class='federated'>
+      <named-connections>
+        <named-connection caption="order_line_sales" name="textscan.order_line_sales">
+          <connection class='textscan' directory="/Users/illiyinsakhawat/Projects/bertie-sweet-shop/tableau/data" filename="order_line_sales.csv" password='' server='' />
+        </named-connection>
+      </named-connections>
+      <relation connection="textscan.order_line_sales" name="order_line_sales.csv" table="[order_line_sales#csv]" type='table'>
+        <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype="integer" name="order_item_id" ordinal="0" />
+            <column datatype="integer" name="order_id" ordinal="1" />
+            <column datatype="date" name="order_date" ordinal="2" />
+            <column datatype="date" name="order_month" ordinal="3" />
+            <column datatype="string" name="order_status" ordinal="4" />
+            <column datatype="integer" name="customer_id" ordinal="5" />
+            <column datatype="string" name="region_name" ordinal="6" />
+            <column datatype="string" name="dc_name" ordinal="7" />
+            <column datatype="string" name="product_type" ordinal="8" />
+            <column datatype="string" name="product_code" ordinal="9" />
+            <column datatype="string" name="product_name" ordinal="10" />
+            <column datatype="string" name="category_name" ordinal="11" />
+            <column datatype="integer" name="quantity" ordinal="12" />
+            <column datatype="real" name="unit_price" ordinal="13" />
+            <column datatype="real" name="discount_pct" ordinal="14" />
+            <column datatype="string" name="price_status" ordinal="15" />
+            <column datatype="real" name="gross_revenue" ordinal="16" />
+            <column datatype="real" name="discount_amount" ordinal="17" />
+            <column datatype="real" name="net_revenue" ordinal="18" />
+        </columns>
+      </relation>
+    </connection>
+    <aliases enabled='yes' />
+    <column caption="Order Item Id" datatype="integer" name="[order_item_id]" role="dimension" type="ordinal" />
+    <column caption="Order Id" datatype="integer" name="[order_id]" role="dimension" type="ordinal" />
+    <column caption="Order Date" datatype="date" name="[order_date]" role="dimension" type="ordinal" />
+    <column caption="Order Month" datatype="date" name="[order_month]" role="dimension" type="ordinal" />
+    <column caption="Order Status" datatype="string" name="[order_status]" role="dimension" type="nominal" />
+    <column caption="Customer Id" datatype="integer" name="[customer_id]" role="dimension" type="ordinal" />
+    <column caption="Region Name" datatype="string" name="[region_name]" role="dimension" type="nominal" />
+    <column caption="Dc Name" datatype="string" name="[dc_name]" role="dimension" type="nominal" />
+    <column caption="Product Type" datatype="string" name="[product_type]" role="dimension" type="nominal" />
+    <column caption="Product Code" datatype="string" name="[product_code]" role="dimension" type="nominal" />
+    <column caption="Product Name" datatype="string" name="[product_name]" role="dimension" type="nominal" />
+    <column caption="Category Name" datatype="string" name="[category_name]" role="dimension" type="nominal" />
+    <column caption="Quantity" datatype="integer" name="[quantity]" role="measure" type="quantitative" />
+    <column caption="Unit Price" datatype="real" name="[unit_price]" role="measure" type="quantitative" />
+    <column caption="Discount Pct" datatype="real" name="[discount_pct]" role="measure" type="quantitative" />
+    <column caption="Price Status" datatype="string" name="[price_status]" role="dimension" type="nominal" />
+    <column caption="Gross Revenue" datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[gross_revenue]" role="measure" type="quantitative" />
+    <column caption="Discount Amount" datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[discount_amount]" role="measure" type="quantitative" />
+    <column caption="Net Revenue" datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[net_revenue]" role="measure" type="quantitative" />
+    <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+  </datasource>
+  <datasource caption="Order Summary" inline='true' name="federated.order_summary" version='18.1'>
+    <connection class='federated'>
+      <named-connections>
+        <named-connection caption="order_summary" name="textscan.order_summary">
+          <connection class='textscan' directory="/Users/illiyinsakhawat/Projects/bertie-sweet-shop/tableau/data" filename="order_summary.csv" password='' server='' />
+        </named-connection>
+      </named-connections>
+      <relation connection="textscan.order_summary" name="order_summary.csv" table="[order_summary#csv]" type='table'>
+        <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype="integer" name="order_id" ordinal="0" />
+            <column datatype="integer" name="customer_id" ordinal="1" />
+            <column datatype="date" name="order_date" ordinal="2" />
+            <column datatype="date" name="order_month" ordinal="3" />
+            <column datatype="string" name="order_status" ordinal="4" />
+            <column datatype="string" name="region_name" ordinal="5" />
+            <column datatype="integer" name="line_count" ordinal="6" />
+            <column datatype="integer" name="units" ordinal="7" />
+            <column datatype="real" name="gross_subtotal" ordinal="8" />
+            <column datatype="real" name="discount_total" ordinal="9" />
+            <column datatype="real" name="delivery_charge" ordinal="10" />
+            <column datatype="real" name="order_total" ordinal="11" />
+            <column datatype="integer" name="customer_order_seq" ordinal="12" />
+            <column datatype="real" name="days_since_prev_order" ordinal="13" />
+            <column datatype="string" name="new_vs_repeat" ordinal="14" />
+        </columns>
+      </relation>
+    </connection>
+    <aliases enabled='yes' />
+    <column caption="Order Id" datatype="integer" name="[order_id]" role="dimension" type="ordinal" />
+    <column caption="Customer Id" datatype="integer" name="[customer_id]" role="dimension" type="ordinal" />
+    <column caption="Order Date" datatype="date" name="[order_date]" role="dimension" type="ordinal" />
+    <column caption="Order Month" datatype="date" name="[order_month]" role="dimension" type="ordinal" />
+    <column caption="Order Status" datatype="string" name="[order_status]" role="dimension" type="nominal" />
+    <column caption="Region Name" datatype="string" name="[region_name]" role="dimension" type="nominal" />
+    <column caption="Line Count" datatype="integer" name="[line_count]" role="measure" type="quantitative" />
+    <column caption="Units" datatype="integer" name="[units]" role="measure" type="quantitative" />
+    <column caption="Gross Subtotal" datatype="real" name="[gross_subtotal]" role="measure" type="quantitative" />
+    <column caption="Discount Total" datatype="real" name="[discount_total]" role="measure" type="quantitative" />
+    <column caption="Delivery Charge" datatype="real" name="[delivery_charge]" role="measure" type="quantitative" />
+    <column caption="Order Total" datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[order_total]" role="measure" type="quantitative" />
+    <column caption="Customer Order Seq" datatype="integer" name="[customer_order_seq]" role="dimension" type="ordinal" />
+    <column caption="Days Since Prev Order" datatype="real" name="[days_since_prev_order]" role="measure" type="quantitative" />
+    <column caption="New Vs Repeat" datatype="string" name="[new_vs_repeat]" role="dimension" type="nominal" />
+    <column caption="Avg Order Value" datatype="real" default-format='c"£"#,##0.00;-"£"#,##0.00' name="[Calc_AOV]" role="measure" type="quantitative">
+      <calculation class='tableau' formula="SUM([order_total]) / COUNTD([order_id])" />
+    </column>
+    <column caption="Repeat Order %" datatype="real" default-format="p0.0%" name="[Calc_RepeatPct]" role="measure" type="quantitative">
+      <calculation class='tableau' formula='SUM(IIF([new_vs_repeat] = "Repeat", 1, 0)) / COUNT([order_id])' />
+    </column>
+    <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+  </datasource>
+  <datasource caption="Customer Summary" inline='true' name="federated.customer_summary" version='18.1'>
+    <connection class='federated'>
+      <named-connections>
+        <named-connection caption="customer_summary" name="textscan.customer_summary">
+          <connection class='textscan' directory="/Users/illiyinsakhawat/Projects/bertie-sweet-shop/tableau/data" filename="customer_summary.csv" password='' server='' />
+        </named-connection>
+      </named-connections>
+      <relation connection="textscan.customer_summary" name="customer_summary.csv" table="[customer_summary#csv]" type='table'>
+        <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype="integer" name="customer_id" ordinal="0" />
+            <column datatype="string" name="region_name" ordinal="1" />
+            <column datatype="date" name="registered_on" ordinal="2" />
+            <column datatype="date" name="first_order_date" ordinal="3" />
+            <column datatype="date" name="last_order_date" ordinal="4" />
+            <column datatype="date" name="cohort_month" ordinal="5" />
+            <column datatype="integer" name="order_count" ordinal="6" />
+            <column datatype="real" name="lifetime_value" ordinal="7" />
+            <column datatype="real" name="avg_order_value" ordinal="8" />
+            <column datatype="real" name="avg_days_between_orders" ordinal="9" />
+            <column datatype="string" name="customer_segment" ordinal="10" />
+        </columns>
+      </relation>
+    </connection>
+    <aliases enabled='yes' />
+    <column caption="Customer Id" datatype="integer" name="[customer_id]" role="dimension" type="ordinal" />
+    <column caption="Region Name" datatype="string" name="[region_name]" role="dimension" type="nominal" />
+    <column caption="Registered On" datatype="date" name="[registered_on]" role="dimension" type="ordinal" />
+    <column caption="First Order Date" datatype="date" name="[first_order_date]" role="dimension" type="ordinal" />
+    <column caption="Last Order Date" datatype="date" name="[last_order_date]" role="dimension" type="ordinal" />
+    <column caption="Cohort Month" datatype="date" name="[cohort_month]" role="dimension" type="ordinal" />
+    <column caption="Order Count" datatype="integer" name="[order_count]" role="measure" type="quantitative" />
+    <column caption="Lifetime Value" datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[lifetime_value]" role="measure" type="quantitative" />
+    <column caption="Avg Order Value" datatype="real" default-format='c"£"#,##0.00;-"£"#,##0.00' name="[avg_order_value]" role="measure" type="quantitative" />
+    <column caption="Avg Days Between Orders" datatype="real" name="[avg_days_between_orders]" role="measure" type="quantitative" />
+    <column caption="Customer Segment" datatype="string" name="[customer_segment]" role="dimension" type="nominal" />
+    <column caption="% of Revenue" datatype="real" default-format="p0%" name="[Calc_RevShare]" role="measure" type="quantitative">
+      <calculation class='tableau' formula="SUM([lifetime_value]) / MIN({FIXED : SUM([lifetime_value])})" />
+    </column>
+    <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+  </datasource>
+  <datasource caption="Monthly Category Revenue" inline='true' name="federated.monthly_category_revenue" version='18.1'>
+    <connection class='federated'>
+      <named-connections>
+        <named-connection caption="monthly_category_revenue" name="textscan.monthly_category_revenue">
+          <connection class='textscan' directory="/Users/illiyinsakhawat/Projects/bertie-sweet-shop/tableau/data" filename="monthly_category_revenue.csv" password='' server='' />
+        </named-connection>
+      </named-connections>
+      <relation connection="textscan.monthly_category_revenue" name="monthly_category_revenue.csv" table="[monthly_category_revenue#csv]" type='table'>
+        <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype="date" name="order_month" ordinal="0" />
+            <column datatype="string" name="category_name" ordinal="1" />
+            <column datatype="real" name="revenue" ordinal="2" />
+            <column datatype="integer" name="units" ordinal="3" />
+            <column datatype="real" name="pct_of_month" ordinal="4" />
+            <column datatype="real" name="prev_month_revenue" ordinal="5" />
+            <column datatype="real" name="mom_growth_pct" ordinal="6" />
+            <column datatype="real" name="same_month_last_year" ordinal="7" />
+            <column datatype="real" name="yoy_growth_pct" ordinal="8" />
+        </columns>
+      </relation>
+    </connection>
+    <aliases enabled='yes' />
+    <column caption="Order Month" datatype="date" name="[order_month]" role="dimension" type="ordinal" />
+    <column caption="Category Name" datatype="string" name="[category_name]" role="dimension" type="nominal" />
+    <column caption="Revenue" datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[revenue]" role="measure" type="quantitative" />
+    <column caption="Units" datatype="integer" name="[units]" role="measure" type="quantitative" />
+    <column caption="Pct Of Month" datatype="real" name="[pct_of_month]" role="measure" type="quantitative" />
+    <column caption="Prev Month Revenue" datatype="real" name="[prev_month_revenue]" role="measure" type="quantitative" />
+    <column caption="Mom Growth Pct" datatype="real" name="[mom_growth_pct]" role="measure" type="quantitative" />
+    <column caption="Same Month Last Year" datatype="real" name="[same_month_last_year]" role="measure" type="quantitative" />
+    <column caption="Yoy Growth Pct" datatype="real" name="[yoy_growth_pct]" role="measure" type="quantitative" />
+    <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+  </datasource>
+  <datasource caption="Product Performance" inline='true' name="federated.product_performance" version='18.1'>
+    <connection class='federated'>
+      <named-connections>
+        <named-connection caption="product_performance" name="textscan.product_performance">
+          <connection class='textscan' directory="/Users/illiyinsakhawat/Projects/bertie-sweet-shop/tableau/data" filename="product_performance.csv" password='' server='' />
+        </named-connection>
+      </named-connections>
+      <relation connection="textscan.product_performance" name="product_performance.csv" table="[product_performance#csv]" type='table'>
+        <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype="string" name="product_code" ordinal="0" />
+            <column datatype="string" name="product_name" ordinal="1" />
+            <column datatype="string" name="category_name" ordinal="2" />
+            <column datatype="string" name="product_type" ordinal="3" />
+            <column datatype="integer" name="units_sold" ordinal="4" />
+            <column datatype="integer" name="orders" ordinal="5" />
+            <column datatype="real" name="net_revenue" ordinal="6" />
+            <column datatype="integer" name="buyers" ordinal="7" />
+            <column datatype="integer" name="repeat_buyers" ordinal="8" />
+            <column datatype="real" name="repeat_buyer_pct" ordinal="9" />
+            <column datatype="integer" name="overall_rank" ordinal="10" />
+            <column datatype="integer" name="rank_in_category" ordinal="11" />
+        </columns>
+      </relation>
+    </connection>
+    <aliases enabled='yes' />
+    <column caption="Product Code" datatype="string" name="[product_code]" role="dimension" type="nominal" />
+    <column caption="Product Name" datatype="string" name="[product_name]" role="dimension" type="nominal" />
+    <column caption="Category Name" datatype="string" name="[category_name]" role="dimension" type="nominal" />
+    <column caption="Product Type" datatype="string" name="[product_type]" role="dimension" type="nominal" />
+    <column caption="Units Sold" datatype="integer" name="[units_sold]" role="measure" type="quantitative" />
+    <column caption="Orders" datatype="integer" name="[orders]" role="measure" type="quantitative" />
+    <column caption="Net Revenue" datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[net_revenue]" role="measure" type="quantitative" />
+    <column caption="Buyers" datatype="integer" name="[buyers]" role="measure" type="quantitative" />
+    <column caption="Repeat Buyers" datatype="integer" name="[repeat_buyers]" role="measure" type="quantitative" />
+    <column caption="Repeat Buyer Pct" datatype="real" name="[repeat_buyer_pct]" role="measure" type="quantitative" />
+    <column caption="Overall Rank" datatype="integer" name="[overall_rank]" role="dimension" type="ordinal" />
+    <column caption="Rank In Category" datatype="integer" name="[rank_in_category]" role="dimension" type="ordinal" />
+    <column caption="Repeat Buyer Rate" datatype="real" default-format="p0.0%" name="[Calc_RepeatBuyer]" role="measure" type="quantitative">
+      <calculation class='tableau' formula="SUM([repeat_buyers]) / SUM([buyers])" />
+    </column>
+    <column caption="Top 10 Product" datatype="boolean" name="[Calc_Top10]" role="dimension" type="nominal">
+      <calculation class='tableau' formula="[overall_rank] &lt;= 10" />
+    </column>
+    <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+  </datasource>
+  <datasource caption="Cohort Retention" inline='true' name="federated.cohort_retention" version='18.1'>
+    <connection class='federated'>
+      <named-connections>
+        <named-connection caption="cohort_retention" name="textscan.cohort_retention">
+          <connection class='textscan' directory="/Users/illiyinsakhawat/Projects/bertie-sweet-shop/tableau/data" filename="cohort_retention.csv" password='' server='' />
+        </named-connection>
+      </named-connections>
+      <relation connection="textscan.cohort_retention" name="cohort_retention.csv" table="[cohort_retention#csv]" type='table'>
+        <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype="date" name="cohort_month" ordinal="0" />
+            <column datatype="integer" name="months_since_first" ordinal="1" />
+            <column datatype="integer" name="cohort_customers" ordinal="2" />
+            <column datatype="integer" name="active_customers" ordinal="3" />
+            <column datatype="real" name="retention_pct" ordinal="4" />
+        </columns>
+      </relation>
+    </connection>
+    <aliases enabled='yes' />
+    <column caption="Cohort Month" datatype="date" name="[cohort_month]" role="dimension" type="ordinal" />
+    <column caption="Months Since First" datatype="integer" name="[months_since_first]" role="dimension" type="ordinal" />
+    <column caption="Cohort Customers" datatype="integer" name="[cohort_customers]" role="measure" type="quantitative" />
+    <column caption="Active Customers" datatype="integer" name="[active_customers]" role="measure" type="quantitative" />
+    <column caption="Retention Pct" datatype="real" name="[retention_pct]" role="measure" type="quantitative" />
+    <column caption="Retention %" datatype="real" default-format="p0%" name="[Calc_Retention]" role="measure" type="quantitative">
+      <calculation class='tableau' formula="SUM([active_customers]) / SUM([cohort_customers])" />
+    </column>
+    <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+  </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="KPI Revenue">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Total Revenue</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Order Summary" name="federated.order_summary" />
+          </datasources>
+          <datasource-dependencies datasource="federated.order_summary">
+            <column datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[order_total]" role="measure" type="quantitative" />
+            <column-instance column="[order_total]" derivation="Sum" name="[sum:order_total:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='font-size' value='26' />
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#4e2a84' />
+            <format attr='text-align' value='center' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.order_summary].[sum:order_total:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+      </table>
+    </worksheet>
+    <worksheet name="KPI Orders">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Orders</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Order Summary" name="federated.order_summary" />
+          </datasources>
+          <datasource-dependencies datasource="federated.order_summary">
+            <column datatype="integer" name="[order_id]" role="dimension" type="ordinal" />
+            <column-instance column="[order_id]" derivation="CountD" name="[ctd:order_id:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='font-size' value='26' />
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#4e2a84' />
+            <format attr='text-align' value='center' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.order_summary].[ctd:order_id:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+      </table>
+    </worksheet>
+    <worksheet name="KPI Avg Order Value">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Avg Order Value</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Order Summary" name="federated.order_summary" />
+          </datasources>
+          <datasource-dependencies datasource="federated.order_summary">
+            <column caption="Avg Order Value" datatype="real" default-format='c"£"#,##0.00;-"£"#,##0.00' name="[Calc_AOV]" role="measure" type="quantitative">
+              <calculation class='tableau' formula="SUM([order_total]) / COUNTD([order_id])" />
+            </column>
+            <column-instance column="[Calc_AOV]" derivation="User" name="[usr:Calc_AOV:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='font-size' value='26' />
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#4e2a84' />
+            <format attr='text-align' value='center' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.order_summary].[usr:Calc_AOV:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+      </table>
+    </worksheet>
+    <worksheet name="KPI Repeat Order %">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Repeat Order Rate</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Order Summary" name="federated.order_summary" />
+          </datasources>
+          <datasource-dependencies datasource="federated.order_summary">
+            <column caption="Repeat Order %" datatype="real" default-format="p0.0%" name="[Calc_RepeatPct]" role="measure" type="quantitative">
+              <calculation class='tableau' formula='SUM(IIF([new_vs_repeat] = "Repeat", 1, 0)) / COUNT([order_id])' />
+            </column>
+            <column-instance column="[Calc_RepeatPct]" derivation="User" name="[usr:Calc_RepeatPct:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='font-size' value='26' />
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#4e2a84' />
+            <format attr='text-align' value='center' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.order_summary].[usr:Calc_RepeatPct:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+      </table>
+    </worksheet>
+    <worksheet name="Revenue Trend by Category">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Monthly Category Revenue" name="federated.monthly_category_revenue" />
+          </datasources>
+          <datasource-dependencies datasource="federated.monthly_category_revenue">
+            <column datatype="string" name="[category_name]" role="dimension" type="nominal" />
+            <column datatype="date" name="[order_month]" role="dimension" type="ordinal" />
+            <column datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[revenue]" role="measure" type="quantitative" />
+            <column-instance column="[category_name]" derivation="None" name="[none:category_name:nk]" pivot='key' type="nominal" />
+            <column-instance column="[revenue]" derivation="Sum" name="[sum:revenue:qk]" pivot='key' type="quantitative" />
+            <column-instance column="[order_month]" derivation="Month-Trunc" name="[tmn:order_month:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Area" />
+            <encodings>
+              <color column="[federated.monthly_category_revenue].[none:category_name:nk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.monthly_category_revenue].[sum:revenue:qk]</rows>
+        <cols>[federated.monthly_category_revenue].[tmn:order_month:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Top 10 Products">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Product Performance" name="federated.product_performance" />
+          </datasources>
+          <datasource-dependencies datasource="federated.product_performance">
+            <column caption="Top 10 Product" datatype="boolean" name="[Calc_Top10]" role="dimension" type="nominal">
+              <calculation class='tableau' formula="[overall_rank] &lt;= 10" />
+            </column>
+            <column datatype="string" name="[category_name]" role="dimension" type="nominal" />
+            <column datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[net_revenue]" role="measure" type="quantitative" />
+            <column datatype="string" name="[product_name]" role="dimension" type="nominal" />
+            <column-instance column="[Calc_Top10]" derivation="None" name="[none:Calc_Top10:nk]" pivot='key' type="nominal" />
+            <column-instance column="[category_name]" derivation="None" name="[none:category_name:nk]" pivot='key' type="nominal" />
+            <column-instance column="[product_name]" derivation="None" name="[none:product_name:nk]" pivot='key' type="nominal" />
+            <column-instance column="[net_revenue]" derivation="Sum" name="[sum:net_revenue:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <filter class='categorical' column="[federated.product_performance].[none:Calc_Top10:nk]">
+            <groupfilter function='member' level="[none:Calc_Top10:nk]" member="true" user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <sort class='computed' column="[federated.product_performance].[none:product_name:nk]" direction="DESC" using="[federated.product_performance].[sum:net_revenue:qk]" />
+          <slices>
+            <column>[federated.product_performance].[none:Calc_Top10:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.product_performance].[none:category_name:nk]" />
+              <text column="[federated.product_performance].[sum:net_revenue:qk]" />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.product_performance].[none:product_name:nk]</rows>
+        <cols>[federated.product_performance].[sum:net_revenue:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Category Revenue by Year">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Order Line Sales" name="federated.order_line_sales" />
+          </datasources>
+          <datasource-dependencies datasource="federated.order_line_sales">
+            <column datatype="string" name="[category_name]" role="dimension" type="nominal" />
+            <column datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[net_revenue]" role="measure" type="quantitative" />
+            <column datatype="date" name="[order_date]" role="dimension" type="ordinal" />
+            <column-instance column="[category_name]" derivation="None" name="[none:category_name:nk]" pivot='key' type="nominal" />
+            <column-instance column="[net_revenue]" derivation="Sum" name="[sum:net_revenue:qk]" pivot='key' type="quantitative" />
+            <column-instance column="[order_date]" derivation="Year" name="[yr:order_date:ok]" pivot='key' type="ordinal" />
+          </datasource-dependencies>
+          <sort class='computed' column="[federated.order_line_sales].[none:category_name:nk]" direction="DESC" using="[federated.order_line_sales].[sum:net_revenue:qk]" />
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.order_line_sales].[yr:order_date:ok]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.order_line_sales].[none:category_name:nk]</rows>
+        <cols>([federated.order_line_sales].[yr:order_date:ok] / [federated.order_line_sales].[sum:net_revenue:qk])</cols>
+      </table>
+    </worksheet>
+    <worksheet name="New vs Repeat Orders">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Order Summary" name="federated.order_summary" />
+          </datasources>
+          <datasource-dependencies datasource="federated.order_summary">
+            <column datatype="string" name="[new_vs_repeat]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[order_id]" role="dimension" type="ordinal" />
+            <column datatype="date" name="[order_month]" role="dimension" type="ordinal" />
+            <column-instance column="[order_id]" derivation="CountD" name="[ctd:order_id:qk]" pivot='key' type="quantitative" />
+            <column-instance column="[new_vs_repeat]" derivation="None" name="[none:new_vs_repeat:nk]" pivot='key' type="nominal" />
+            <column-instance column="[order_month]" derivation="Month-Trunc" name="[tmn:order_month:ok]" pivot='key' type="ordinal" />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.order_summary].[none:new_vs_repeat:nk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.order_summary].[ctd:order_id:qk]</rows>
+        <cols>[federated.order_summary].[tmn:order_month:ok]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Revenue by Customer Segment">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Customer Summary" name="federated.customer_summary" />
+          </datasources>
+          <datasource-dependencies datasource="federated.customer_summary">
+            <column caption="% of Revenue" datatype="real" default-format="p0%" name="[Calc_RevShare]" role="measure" type="quantitative">
+              <calculation class='tableau' formula="SUM([lifetime_value]) / MIN({FIXED : SUM([lifetime_value])})" />
+            </column>
+            <column datatype="string" name="[customer_segment]" role="dimension" type="nominal" />
+            <column datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[lifetime_value]" role="measure" type="quantitative" />
+            <column-instance column="[customer_segment]" derivation="None" name="[none:customer_segment:nk]" pivot='key' type="nominal" />
+            <column-instance column="[lifetime_value]" derivation="Sum" name="[sum:lifetime_value:qk]" pivot='key' type="quantitative" />
+            <column-instance column="[Calc_RevShare]" derivation="User" name="[usr:Calc_RevShare:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <sort class='computed' column="[federated.customer_summary].[none:customer_segment:nk]" direction="DESC" using="[federated.customer_summary].[sum:lifetime_value:qk]" />
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.customer_summary].[none:customer_segment:nk]" />
+              <text column="[federated.customer_summary].[usr:Calc_RevShare:qk]" />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.customer_summary].[none:customer_segment:nk]</rows>
+        <cols>[federated.customer_summary].[sum:lifetime_value:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Cohort Retention">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Cohort Retention" name="federated.cohort_retention" />
+          </datasources>
+          <datasource-dependencies datasource="federated.cohort_retention">
+            <column caption="Retention %" datatype="real" default-format="p0%" name="[Calc_Retention]" role="measure" type="quantitative">
+              <calculation class='tableau' formula="SUM([active_customers]) / SUM([cohort_customers])" />
+            </column>
+            <column datatype="date" name="[cohort_month]" role="dimension" type="ordinal" />
+            <column datatype="integer" name="[months_since_first]" role="dimension" type="ordinal" />
+            <column-instance column="[months_since_first]" derivation="None" name="[none:months_since_first:ok]" pivot='key' type="ordinal" />
+            <column-instance column="[cohort_month]" derivation="Quarter-Trunc" name="[tqr:cohort_month:ok]" pivot='key' type="ordinal" />
+            <column-instance column="[Calc_Retention]" derivation="User" name="[usr:Calc_Retention:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <filter class='categorical' column="[federated.cohort_retention].[none:months_since_first:ok]">
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="1" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="2" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="3" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="4" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="5" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="6" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="7" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="8" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="9" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="10" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="11" />
+              <groupfilter function='member' level="[none:months_since_first:ok]" member="12" />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.cohort_retention].[none:months_since_first:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Square" />
+            <encodings>
+              <color column="[federated.cohort_retention].[usr:Calc_Retention:qk]" />
+              <text column="[federated.cohort_retention].[usr:Calc_Retention:qk]" />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.cohort_retention].[tqr:cohort_month:ok]</rows>
+        <cols>[federated.cohort_retention].[none:months_since_first:ok]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Product Repeat-Buy Matrix">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Product Performance" name="federated.product_performance" />
+          </datasources>
+          <datasource-dependencies datasource="federated.product_performance">
+            <column caption="Repeat Buyer Rate" datatype="real" default-format="p0.0%" name="[Calc_RepeatBuyer]" role="measure" type="quantitative">
+              <calculation class='tableau' formula="SUM([repeat_buyers]) / SUM([buyers])" />
+            </column>
+            <column datatype="string" name="[category_name]" role="dimension" type="nominal" />
+            <column datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[net_revenue]" role="measure" type="quantitative" />
+            <column datatype="string" name="[product_name]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[units_sold]" role="measure" type="quantitative" />
+            <column-instance column="[category_name]" derivation="None" name="[none:category_name:nk]" pivot='key' type="nominal" />
+            <column-instance column="[product_name]" derivation="None" name="[none:product_name:nk]" pivot='key' type="nominal" />
+            <column-instance column="[net_revenue]" derivation="Sum" name="[sum:net_revenue:qk]" pivot='key' type="quantitative" />
+            <column-instance column="[units_sold]" derivation="Sum" name="[sum:units_sold:qk]" pivot='key' type="quantitative" />
+            <column-instance column="[Calc_RepeatBuyer]" derivation="User" name="[usr:Calc_RepeatBuyer:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Circle" />
+            <encodings>
+              <color column="[federated.product_performance].[none:category_name:nk]" />
+              <size column="[federated.product_performance].[sum:net_revenue:qk]" />
+              <lod column="[federated.product_performance].[none:product_name:nk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.product_performance].[usr:Calc_RepeatBuyer:qk]</rows>
+        <cols>[federated.product_performance].[sum:units_sold:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Revenue by Region">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Order Line Sales" name="federated.order_line_sales" />
+          </datasources>
+          <datasource-dependencies datasource="federated.order_line_sales">
+            <column datatype="real" default-format='c"£"#,##0;-"£"#,##0' name="[net_revenue]" role="measure" type="quantitative" />
+            <column datatype="string" name="[region_name]" role="dimension" type="nominal" />
+            <column-instance column="[region_name]" derivation="None" name="[none:region_name:nk]" pivot='key' type="nominal" />
+            <column-instance column="[net_revenue]" derivation="Sum" name="[sum:net_revenue:qk]" pivot='key' type="quantitative" />
+          </datasource-dependencies>
+          <sort class='computed' column="[federated.order_line_sales].[none:region_name:nk]" direction="DESC" using="[federated.order_line_sales].[sum:net_revenue:qk]" />
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[federated.order_line_sales].[sum:net_revenue:qk]" />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.order_line_sales].[none:region_name:nk]</rows>
+        <cols>[federated.order_line_sales].[sum:net_revenue:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name="Sales Performance">
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='111' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='8000' id='101' type-v2='text' w='100000' x='0' y='0'>
+            <formatted-text>
+              <run bold='true' fontcolor='#4e2a84' fontsize='20'>Sales Performance</run>
+              <run>&#10;</run>
+              <run fontcolor='#666666' fontsize='10'>Bertie Sweet Online Shop · Jan 2024 – Dec 2025 · cancelled orders excluded</run>
+            </formatted-text>
+          </zone>
+          <zone h='14000' id='102' name="KPI Revenue" w='25000' x='0' y='8000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='14000' id='103' name="KPI Orders" w='25000' x='25000' y='8000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='14000' id='104' name="KPI Avg Order Value" w='25000' x='50000' y='8000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='14000' id='105' name="KPI Repeat Order %" w='25000' x='75000' y='8000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='38000' id='106' name="Revenue Trend by Category" w='86000' x='0' y='22000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='38000' id='107' name="Revenue Trend by Category" pane-specification-id='0' param="[federated.monthly_category_revenue].[none:category_name:nk]" type-v2='color' w='14000' x='86000' y='22000' />
+          <zone h='40000' id='108' name="Top 10 Products" w='40000' x='0' y='60000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='40000' id='109' name="Category Revenue by Year" w='35000' x='40000' y='60000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='40000' id='110' name="Revenue by Region" w='25000' x='75000' y='60000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name="Customers &amp; Repeat Purchasing">
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='119' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='8000' id='112' type-v2='text' w='100000' x='0' y='0'>
+            <formatted-text>
+              <run bold='true' fontcolor='#4e2a84' fontsize='20'>Customers &amp; Repeat Purchasing</run>
+              <run>&#10;</run>
+              <run fontcolor='#666666' fontsize='10'>Bertie Sweet Online Shop · Jan 2024 – Dec 2025 · cancelled orders excluded</run>
+            </formatted-text>
+          </zone>
+          <zone h='46000' id='113' name="New vs Repeat Orders" w='46000' x='0' y='8000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='46000' id='114' name="New vs Repeat Orders" pane-specification-id='0' param="[federated.order_summary].[none:new_vs_repeat:nk]" type-v2='color' w='9000' x='46000' y='8000' />
+          <zone h='46000' id='115' name="Revenue by Customer Segment" w='45000' x='55000' y='8000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='46000' id='116' name="Cohort Retention" w='55000' x='0' y='54000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='46000' id='117' name="Product Repeat-Buy Matrix" w='33000' x='55000' y='54000'>
+            <zone-style>
+              <format attr='border-color' value='#e5e5e5' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='46000' id='118' name="Product Repeat-Buy Matrix" pane-specification-id='0' param="[federated.product_performance].[none:category_name:nk]" type-v2='color' w='12000' x='88000' y='54000' />
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='worksheet' name="KPI Revenue">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="KPI Orders">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="KPI Avg Order Value">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="KPI Repeat Order %">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="Revenue Trend by Category">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="Top 10 Products">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="Category Revenue by Year">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="New vs Repeat Orders">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="Revenue by Customer Segment">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="Cohort Retention">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="Product Repeat-Buy Matrix">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name="Revenue by Region">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='dashboard' maximized='true' name="Sales Performance">
+      <viewpoints>
+        <viewpoint name="KPI Revenue">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="KPI Orders">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="KPI Avg Order Value">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="KPI Repeat Order %">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="Revenue Trend by Category">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="Top 10 Products">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="Category Revenue by Year">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="Revenue by Region">
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+    <window class='dashboard' name="Customers &amp; Repeat Purchasing">
+      <viewpoints>
+        <viewpoint name="New vs Repeat Orders">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="Revenue by Customer Segment">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="Cohort Retention">
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name="Product Repeat-Buy Matrix">
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+  </windows>
+</workbook>
